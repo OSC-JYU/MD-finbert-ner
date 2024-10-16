@@ -12,7 +12,7 @@ This requires Huggingface transformers, pytorch and syntok
 	pip3 install transformers syntok torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
 	python api.py
 
-
+Script uses syntok for splitting text to smaller chuncks. This means that start and end values does not match with the original text. Highlighting is therefore problematic.
 
 Note: no Dockerfile yet
 

@@ -49,10 +49,11 @@ def process_files():
         sentences = split_into_sentences(text)
         predictions = token_classifier(sentences)
         print(predictions)
+        # concat predictions to one array
+        predictions = [item for sublist in predictions for item in sublist]
         with open(os.path.join(OUTPUT_FOLDER, output_id + '.ner.json'), "w") as file:
             json.dump(str(predictions), file, indent=4)
 
-        print('toimin ehkä...')
 
 
     except Exception as e:
