@@ -1,7 +1,7 @@
 IMAGES := $(shell docker images -f "dangling=true" -q)
 CONTAINERS := $(shell docker ps -a -q -f status=exited)
-VOLUME := md-finbert-ner-data
-VERSION := 0.1a
+VOLUME := md-finbert-ner-models
+VERSION := 0.1
 REPOSITORY := osc.repo.kopla.jyu.fi
 IMAGE := md-finbert
 
@@ -15,9 +15,9 @@ build:
 
 start:
 	docker run -d --name $(IMAGE) \
-		-v $(VOLUME):/logs \
 		-p 8600:8600 \
 		--restart unless-stopped \
+		--replace \
 		$(REPOSITORY)/messydesk/$(IMAGE):$(VERSION)
 
 restart:
