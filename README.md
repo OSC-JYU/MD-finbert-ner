@@ -6,8 +6,12 @@
 
 https://huggingface.co/Kansallisarkisto/finbert-ner
 
+Download pytorch_model.bin from  https://huggingface.co/Kansallisarkisto/finbert-ner/blob/main/pytorch_model.bin and place it to "finbert-ner-model" directory 
+
 
 This requires Huggingface transformers, pytorch and syntok
+
+## Python
 
 	python -m venv .env
 	source .env/bin/activate
@@ -17,6 +21,10 @@ This requires Huggingface transformers, pytorch and syntok
 
 Script uses syntok for splitting text to smaller chuncks. This means that start and end values does not match with the original text. Highlighting is therefore problematic.
 
+## Container
+
+	make build
+	make start
 
 ## API call
 
